@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -127,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #For Custom USER
-AUTH_USER_MODEL = "student_App.CustomUser"
+# AUTH_USER_MODEL = "student_App.CustomUser"
 
 # Registering Custom Backend "EmailBackEnd"
 AUTHENTICATION_BACKENDS = ['student_App.EmailBackEnd.EmailBackEnd']
