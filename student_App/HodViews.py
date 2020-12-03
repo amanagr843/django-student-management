@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
+from student_App.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
 from .forms import AddStudentForm, EditStudentForm
 
 
@@ -16,13 +16,10 @@ def admin_home(request):
     subject_count = Subjects.objects.all().count()
     course_count = Courses.objects.all().count()
     staff_count = Staffs.objects.all().count()
-
-    # Total Subjects and students in Each Course
     course_all = Courses.objects.all()
     course_name_list = []
     subject_count_list = []
     student_count_list_in_course = []
-
     for course in course_all:
         subjects = Subjects.objects.filter(course_id=course.id).count()
         students = Students.objects.filter(course_id=course.id).count()

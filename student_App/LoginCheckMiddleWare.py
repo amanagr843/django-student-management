@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 class LoginCheckMiddleWare(MiddlewareMixin):
-    
+
     def process_view(self, request, view_func, view_args, view_kwargs):
         modulename = view_func.__module__
         # print(modulename)
@@ -13,25 +13,25 @@ class LoginCheckMiddleWare(MiddlewareMixin):
         #Check whether the user is logged in or not
         if user.is_authenticated:
             if user.user_type == "1":
-                if modulename == "student_management_app.HodViews":
+                if modulename == "student_App.HodViews":
                     pass
-                elif modulename == "student_management_app.views" or modulename == "django.views.static":
+                elif modulename == "student_App.views" or modulename == "django.views.static":
                     pass
                 else:
                     return redirect("admin_home")
-            
+
             elif user.user_type == "2":
-                if modulename == "student_management_app.StaffViews":
+                if modulename == "student_App.StaffViews":
                     pass
-                elif modulename == "student_management_app.views" or modulename == "django.views.static":
+                elif modulename == "student_App.views" or modulename == "django.views.static":
                     pass
                 else:
                     return redirect("staff_home")
-            
+
             elif user.user_type == "3":
-                if modulename == "student_management_app.StudentViews":
+                if modulename == "student_App.StudentViews":
                     pass
-                elif modulename == "student_management_app.views" or modulename == "django.views.static":
+                elif modulename == "student_App.views" or modulename == "django.views.static":
                     pass
                 else:
                     return redirect("student_home")
