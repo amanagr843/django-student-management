@@ -129,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #For Custom USER
-# AUTH_USER_MODEL = "student_App.CustomUser"
+AUTH_USER_MODEL = "student_App.CustomUser"
 
 # Registering Custom Backend "EmailBackEnd"
 AUTHENTICATION_BACKENDS = ['student_App.EmailBackEnd.EmailBackEnd']
