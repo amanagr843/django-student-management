@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'student_App',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'student_App.LoginCheckMiddleWare.LoginCheckMiddleWare',
 ]
 
 ROOT_URLCONF = 'django_student.urls'
@@ -118,3 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+#For Custom USER
+AUTH_USER_MODEL = "student_App.CustomUser"
+
+# Registering Custom Backend "EmailBackEnd"
+AUTHENTICATION_BACKENDS = ['student_App.EmailBackEnd.EmailBackEnd']
